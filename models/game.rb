@@ -1,14 +1,14 @@
 class Game
 	def initialize( rules )
 		moves = {
-			'rps' => ['Rock', 'Paper', 'Scissors']
+			'rps' => ['rock', 'paper', 'scissors']
 		}
 
 		losers = {
 			'rps' => {
-				'Rock' => 'Scissors',
-				'Scissors' => 'Paper',
-				'Paper' => 'Rock'
+				'rock' => 'scissors',
+				'scissors' => 'paper',
+				'paper' => 'rock'
 			}
 		}
 
