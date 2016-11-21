@@ -6,9 +6,17 @@ class Game
 
 		losers = {
 			'rps' => {
-				'rock' => 'scissors',
-				'scissors' => 'paper',
-				'paper' => 'rock'
+				'rock' => ['scissors'],
+				'paper' => ['rock'],
+				'scissors' => ['paper']
+			},
+			'rpsls' => {
+				'rock' => ['scissors', 'lizard'],
+				'paper' => ['rock', 'spock'],
+				'scissors' => ['paper', 'lizard'],
+				'lizard' => ['spock', 'paper'],
+				'spock' => ['rock', 'scissors']
+				
 			}
 		}
 
@@ -26,7 +34,7 @@ class Game
 
 		return 'a draw' if @cpu_move == player_move
 
-		return 'you won' if @cpu_move == @losers[player_move]
+		return 'you won' if @losers[player_move].include?(@cpu_move)
 
 		return 'you lost'
 	end
