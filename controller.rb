@@ -12,3 +12,7 @@ get '/:rules/:move' do
 
   erb( :result )
 end
+
+get '/' do
+	erb( :welcome )
+end

@@ -1,13 +1,14 @@
 class Game
 	
-	attr_accessor :cpu_move
+	attr_accessor :cpu_throw
 
 	def initialize( rules )
-		moves = {
+		throws = {
 			'rps' => ['rock', 'paper', 'scissors'],
 			'rpsls' => ['rock', 'paper', 'scissors', 'lizard', 'spock']
 		}
 
+		#throw that is the key beats throws that are in values
 		losers = {
 			'rps' => {
 				'rock' => ['scissors'],
@@ -18,27 +19,27 @@ class Game
 				'rock' => ['scissors', 'lizard'],
 				'paper' => ['rock', 'spock'],
 				'scissors' => ['paper', 'lizard'],
-				'lizard' => ['spock', 'paper'],
+				'lizard' => ['paper', 'spock'],
 				'spock' => ['rock', 'scissors']
 				
 			}
 		}
 
 		@losers = losers[rules]
-		@moves = moves[rules]
+		@throws = throws[rules]
 	end
 
-	def get_cpu_move()
-		random_index = rand(@moves.length)
-		@cpu_move = @moves[random_index]
-		return @cpu_move
+	def get_cpu_throw()
+		random_index = rand(@throws.length)
+		@cpu_throw = @throws[random_index]
+		return @cpu_throw
 	end
 
-	def get_result(player_move)
+	def get_result(player_throw)
 
-		return 'a draw' if @cpu_move == player_move
+		return 'a draw' if @cpu_throw == player_throw
 
-		return 'you won' if @losers[player_move].include?(@cpu_move)
+		return 'you won' if @losers[player_throw].include?(@cpu_throw)
 
 		return 'you lost'
 	end
