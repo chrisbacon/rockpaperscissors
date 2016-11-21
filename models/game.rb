@@ -26,11 +26,11 @@ class Game
 		}
 
 		@rules = rules[ruleset]
-		@possible_throws = possible_throws[rules]
+		@possible_throws = possible_throws[ruleset]
 	end
 
 	def get_cpu_throw()
-		random_index = rand(@throws.length)
+		random_index = rand(@possible_throws.length)
 		@cpu_throw = @possible_throws[random_index]
 		return @cpu_throw
 	end
