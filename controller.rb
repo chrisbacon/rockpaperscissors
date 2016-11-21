@@ -3,12 +3,12 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative('models/game.rb')
 
-get '/:rules/:move' do 
+get '/:rules/:throw' do 
   game = Game.new( params[:rules] )
 
-  @player_move = params[:move].downcase
-  @cpu_move = game.get_cpu_move()
-  @result = game.get_result( @player_move )
+  @player_throw = params[:throw].downcase
+  @cpu_throw = game.get_cpu_throw()
+  @result = game.get_result( @player_throw )
 
   erb( :result )
 end

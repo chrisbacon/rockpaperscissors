@@ -11,7 +11,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rps__rock
-		@rps.cpu_move = 'rock'
+		@rps.cpu_throw = 'rock'
 
 		assert_equal('a draw', @rps.get_result('rock'))
 		assert_equal('you won', @rps.get_result('paper'))
@@ -19,7 +19,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rps__paper
-		@rps.cpu_move = 'paper'
+		@rps.cpu_throw = 'paper'
 
 		assert_equal('a draw', @rps.get_result('paper'))
 		assert_equal('you won', @rps.get_result('scissors'))
@@ -28,7 +28,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rps__scissors
-		@rps.cpu_move = 'scissors'
+		@rps.cpu_throw = 'scissors'
 
 		assert_equal('a draw', @rps.get_result('scissors'))
 		assert_equal('you won', @rps.get_result('rock'))
@@ -36,7 +36,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rpsls__rock
-		@rpsls.cpu_move = 'rock'
+		@rpsls.cpu_throw = 'rock'
 
 		assert_equal('a draw', @rpsls.get_result('rock'))
 		assert_equal('you won', @rpsls.get_result('paper'))
@@ -46,7 +46,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rpsls__scissors
-		@rpsls.cpu_move = 'scissors'
+		@rpsls.cpu_throw = 'scissors'
 
 		assert_equal('a draw', @rpsls.get_result('scissors'))
 		assert_equal('you won', @rpsls.get_result('rock'))
@@ -56,7 +56,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rpsls__paper
-		@rpsls.cpu_move = 'paper'
+		@rpsls.cpu_throw = 'paper'
 
 		assert_equal('a draw', @rpsls.get_result('paper'))
 		assert_equal('you won', @rpsls.get_result('scissors'))
@@ -66,7 +66,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rpsls__spock
-		@rpsls.cpu_move = 'spock'
+		@rpsls.cpu_throw = 'spock'
 
 		assert_equal('a draw', @rpsls.get_result('spock'))
 		assert_equal('you won', @rpsls.get_result('paper'))
@@ -76,7 +76,7 @@ class TestGame < Minitest::Test
 	end
 
 	def test_get_result_rpsls__lizard
-		@rpsls.cpu_move = 'lizard'
+		@rpsls.cpu_throw = 'lizard'
 
 		assert_equal('a draw', @rpsls.get_result('lizard'))
 		assert_equal('you won', @rpsls.get_result('rock'))

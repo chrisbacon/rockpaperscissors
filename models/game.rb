@@ -2,14 +2,14 @@ class Game
 	
 	attr_accessor :cpu_throw
 
-	def initialize( rules )
-		throws = {
+	def initialize( ruleset )
+		possible_throws = {
 			'rps' => ['rock', 'paper', 'scissors'],
 			'rpsls' => ['rock', 'paper', 'scissors', 'lizard', 'spock']
 		}
 
 		#throw that is the key beats throws that are in values
-		losers = {
+		rules = {
 			'rps' => {
 				'rock' => ['scissors'],
 				'paper' => ['rock'],
@@ -25,13 +25,13 @@ class Game
 			}
 		}
 
-		@losers = losers[rules]
-		@throws = throws[rules]
+		@rules = rules[ruleset]
+		@possible_throws = possible_throws[rules]
 	end
 
 	def get_cpu_throw()
 		random_index = rand(@throws.length)
-		@cpu_throw = @throws[random_index]
+		@cpu_throw = @possible_throws[random_index]
 		return @cpu_throw
 	end
 
@@ -39,7 +39,7 @@ class Game
 
 		return 'a draw' if @cpu_throw == player_throw
 
-		return 'you won' if @losers[player_throw].include?(@cpu_throw)
+		return 'you won' if @rules[player_throw].include?(@cpu_throw)
 
 		return 'you lost'
 	end
