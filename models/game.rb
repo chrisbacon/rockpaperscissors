@@ -1,7 +1,11 @@
 class Game
+	
+	attr_accessor :cpu_move
+
 	def initialize( rules )
 		moves = {
-			'rps' => ['rock', 'paper', 'scissors']
+			'rps' => ['rock', 'paper', 'scissors'],
+			'rpsls' => ['rock', 'paper', 'scissors', 'lizard', 'spock']
 		}
 
 		losers = {
